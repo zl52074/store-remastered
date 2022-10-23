@@ -72,6 +72,7 @@
                             <li><a href="${pageContext.request.contextPath}/product?method=cart">购物车</a></li>
                             <li><a href="${pageContext.request.contextPath}/order?method=orderList">订单</a></li>
                             <li><a href="${pageContext.request.contextPath}/user?method=quitLogin">退出</a></li>
+                            <li><a href="${pageContext.request.contextPath}/company?method=toCompanyInfo">公司介绍</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
@@ -178,8 +179,8 @@
                             <img src="${pageContext.request.contextPath}/${pro.pimage}"  style="display: inline-block;">
                         </div>
                     </a>
-                    <p><a href="product_info.html" style='color:green'>${pro.pname}</a></p>
-                    <p><font color="#FF0000">价格：&yen;${pro.price}</font></p>
+                    <p style="margin-top:10px"><font size="4" color="green">${pro.pname}<font></font></p>
+                    <p><font size="4" color="#FF0000">价格：&yen;${pro.price}</font></p>
                 </div>
             </c:forEach>
         </c:if>

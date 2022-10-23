@@ -54,6 +54,7 @@
                             <li><a href="${pageContext.request.contextPath}/product?method=cart">购物车</a></li>
                             <li><a href="${pageContext.request.contextPath}/order?method=orderList">订单</a></li>
                             <li><a href="${pageContext.request.contextPath}/user?method=quitLogin">退出</a></li>
+                            <li><a href="${pageContext.request.contextPath}/company?method=toCompanyInfo">公司介绍</a></li>
                         </ul>
 
 

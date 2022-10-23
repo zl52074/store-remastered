@@ -51,6 +51,7 @@
                                         <li><a href="${pageContext.request.contextPath}/product?method=cart">购物车</a></li>
                                         <li><a href="${pageContext.request.contextPath}/order?method=orderList">订单</a></li>
                                         <li><a href="${pageContext.request.contextPath}/user?method=quitLogin">退出</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/company?method=toCompanyInfo">公司介绍</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -95,7 +96,7 @@
                                     </td>
                                     <!--数量-->
                                     <td width="15%">
-                                        <font size="2">${mm.value.count}</font>
+                                        <input style="width:50px" type="number" onchange="changeCount(this,'${mm.value.product.pid}')" value=${mm.value.count} >
                                     </td>
                                     <!--总价-->
                                     <td >
@@ -131,7 +132,17 @@
     </div>
     <div class="col-md-2 col-sm-0 col-xs-0"></div>
 </div>
-
+<script>
+    function changeCount(e,pid){
+        count = $(e).val();
+        if(count<=0){
+            $(e).val(0)
+            location.href = "${pageContext.request.contextPath}/cart?method=remove&pid="+pid
+        }else{
+            location.href = "${pageContext.request.contextPath}/cart?method=changeCount&pid="+pid+"&count="+count
+        }
+    }
+</script>
 
 </body>
 

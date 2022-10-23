@@ -51,6 +51,27 @@ public class CartServlet extends BaseServlet {
             return "/error.jsp";
         }
     }
+
+    public String changeCount(HttpServletRequest request, HttpServletResponse response){
+        try {
+            String pid = request.getParameter("pid");
+            int count = Integer.parseInt(request.getParameter("count"));
+            ProductService ps = new ProductServiceImp();
+            Product pro = ps.getProduct(pid);
+            System.out.println(pid + " " + count + " " + pro);
+            CartItem item = new CartItem();
+            item.setProduct(pro);
+            item.setCount(count);
+            Cart cart = getCart(request);
+            cart.remove(pid);
+            cart.add(item);
+            request.setAttribute("cart", cart);
+            return "/cart.jsp";
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return "/error.jsp";
+        }
+    }
     // 删除购物项
     public String remove(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
